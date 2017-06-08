@@ -1,16 +1,62 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Muis Circle</title>
+    <style>
+      #circle{
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: black;
+        color: white;
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div id='circle'>
+
+  </div>
+<div id='coordtest'>
+
+</div>
+
+
+<script>
+document.addEventListener("mousemove", coords);
+var recordX = [];
+var recordY = [];
+  function coords(){
+    var x = event.clientX;
+    var y = event.clientY;
+    recordX.push(x);
+    recordY.push(y);
+  }
+document.addEventListener("click", showRecord);
+var i = 0;
+  function showRecord(){
+    document.removeEventListener("click", showRecord);
+    document.removeEventListener("mousemove", coords);
+    var mouseaap = setInterval(function(){
+    if(i == recordY.length){
+      clearInterval(mouseaap);
+      document.addEventListener("mousemove", coords);
+      document.addEventListener("click", showRecord);
+      recordX = [];
+      recordY = [];
+      i = 0;
+    }
+    else{
+      document.getElementById('circle').style.left = recordX[i]+'px';
+      document.getElementById('circle').style.top = recordY[i]+'px';
+      i++;
+    }
+    }, 1);
+  }
+</script>
+  </body>
 </html>
