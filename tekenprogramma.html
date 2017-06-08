@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tekenprogramma</title>
+        <style>
+
+            #drawing_place {
+                border: 2em groove black;
+                width: 80vw;
+                height: 80vw;
+                margin: 0 auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="drawing_place">
+            Kleur:
+            <input type="color" id="kleur" onchange="colorPick()">
+<!--            <button style='background-color: red; color: red' onclick="colorPick('red')"> . </button>
+            <button style='background-color: blue; color: blue' onclick="colorPick('blue')"> . </button>
+            <button style='background-color: green; color: green' onclick="colorPick('green')"> . </button>
+            <button style='background-color: yellow; color: yellow' onclick="colorPick('yellow')"> . </button>
+            <button style='background-color: white; color: white' onclick="colorPick('white')"> . </button>
+            -->
+            Pencil grootte:
+            <button style='font-weight: 300' onclick="lineSize(1)">Klein</button>
+            <button style='font-weight: 400' onclick="lineSize(10)">Middel</button>
+            <button style='font-weight: 700' onclick="lineSize(20)">Groot</button>
+
+            <canvas id="paint"></canvas>
+        </div>
+        <script>
+            var canvas = document.querySelector('#paint');
+            var ctx = canvas.getContext('2d');
+
+            var colour = 'black';
+            var drawing_place = document.querySelector('#drawing_place');
+            var drawing_place_style = getComputedStyle(drawing_place);
+            canvas.width = parseInt(drawing_place_style.getPropertyValue('width'));
+            canvas.height = parseInt(drawing_place_style.getPropertyValue('height'));
+
+            var mouse = {x: 0, y: 0};
+            var last_mouse = {x: 0, y: 0};
+
+            function colorPick(colour) {
+                colour = document.getElementById("kleur").value;
+                ctx.strokeStyle = colour;
+            }
+            function lineSize(size) {
+                ctx.lineWidth = size;
+            }
+
+            /* Mouse Capturing Work */
+            canvas.addEventListener('mousemove', function (e) {
+                last_mouse.x = mouse.x;
+                last_mouse.y = mouse.y;
+
+                mouse.x = e.pageX - this.offsetLeft;
+                mouse.y = e.pageY - this.offsetTop;
+            }, false);
+
+
+            /* Drawing on Paint App */
+            ctx.lineWidth;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+
+
+            canvas.addEventListener('mousedown', function (e) {
+                canvas.addEventListener('mousemove', onPaint, false);
+            }, false);
+
+            canvas.addEventListener('mouseup', function () {
+                canvas.removeEventListener('mousemove', onPaint, false);
+            }, false);
+
+            var onPaint = function () {
+                ctx.beginPath();
+                ctx.moveTo(last_mouse.x, last_mouse.y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.closePath();
+                ctx.stroke();
+            };
+            ;
+
+
+        </script>
+    </body>
+</html>
