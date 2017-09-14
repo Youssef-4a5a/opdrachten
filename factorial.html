@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="factorial.js"></script>
+    </head>
+    <body>
+        <form>
+            <div>
+                <label>Number 1:</label>
+                <input type="number" name="firstNumber">
+            </div>
+            <div>
+                <label>Number 2:</label>
+                <input type="number" name="secondNumber">
+            </div>
+            <div>
+                <button type="button" id="multiply">Multiply</button>
+            </div>
+            <div id="result"></div>
+        </form>
+        <script>
+            function multiplyModule() {
+                function multiflaai(cijfer1, cijfer2) {
+                    var cijfer1 = document.querySelector('input[name="firstNumber"]').value;
+                    var cijfer2 = document.querySelector('input[name="secondNumber"]').value;
+
+                    document.getElementById("result").innerHTML = cijfer1 * cijfer2;
+                }
+                
+                document.getElementById("result").addEventListener("click", multiflaai);
+            }
+            
+            multiplyModule();
+        </script>
+    </body>
+</html>
