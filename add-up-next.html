@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <script>
+            var numbers = [2, 6, 11, 5, 9, 8, 3, 46, 4];
+            numbers.forEach(function (value, index, arr) {
+                if (arr.length-1 == index) {
+                    console.log(arr[index]);
+                } else {
+                    var next = value + (arr[index += 1]);
+                    console.log(next);
+                }
+
+//                if (x = 1, x < numbers.length, x += 1) {
+//                    console.log(next + x);
+//                } else {
+//                    console.log(index);
+//                }
+
+            });
+        </script>
+    </body>
+</html>
