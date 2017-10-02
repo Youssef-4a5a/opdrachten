@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table, tr, td, th{
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th></th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>Result</th>
+            </tr>
+            <script>
+                var numbers = [
+                    [9, 21, 14, 7],
+                    [11, 5, 27, 15],
+                    [29, 17, 6, 24]
+                ];
+
+                numbers.forEach(function (value, index, arr) {
+                    index2 = 0;
+                    result = arr[index][index2] + arr[index][index2 + 1] + arr[index][index2 + 2];
+                    document.write("<tr><td>" + index + "</td><td>" + arr[index][index2] + "</td><td>" + arr[index][index2 + 1] + "</td><td>" + arr[index][index2 + 2] + "</td><td>" + arr[index][index2 + 3] + "</td><td>" + result + "</td></tr>");
+//                    document.write("");
+//                    document.write("");
+//                    document.write("<td>" + index + "</td><td>" + result + "</td></tr>");
+                });
+            </script>
+        </table>
+        <table>
+            <tr>
+                <th></th>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>Result</th>
+            </tr>
+            <script>
+                var numbers2 = [
+                    [9, 21, 14, 7],
+                    [11, 5, 27, 15],
+                    [29, 17, 6, 24],
+                    [23,23,1,5]
+                ];
+
+                numbers2.forEach(function (value, index, arr) {
+                    index2 = 0;
+                    result = arr[index2][index] + arr[index2 + 1][index] + arr[index2 + 2][index];
+                    document.write("<tr><td>" + index + "</td><td>" + arr[index2][index] + "</td><td>" + arr[index2 + 1][index] + "</td><td>" + arr[index2 + 2][index] + "</td><td>" + result + "</td></tr>");
+//                    document.write("");
+//                    document.write("");
+//                    document.write("<td>" + index + "</td><td>" + result + "</td></tr>");
+                });
+            </script>
+        </table>
+    </body>
+</html>

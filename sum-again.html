@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <a href="http://www.google.com">Google</a>
+        <br/>
+        <img class="small" src="https://static.giantbomb.com/uploads/original/1/14761/900861-cirno_24.jpg" />
+        <script>
+            function sumAgain(one){
+                
+                function get(two){
+                    return one + two;
+                }
+                
+                return get;
+                
+            }
+            
+            var get = sumAgain(3);
+            var result = get(5);
+            
+            console.log(result);
+            
+            function getFamilyName(lastName){
+                return function(firstName){
+                    return firstName + " " + lastName;
+                };
+            }
+            
+            var showRockefeller = getFamilyName("Rockefeller");
+            console.log(showRockefeller("John"));
+            console.log(showRockefeller("David"));
+            
+            var showJackson = getFamilyName("Jackson");
+            console.log(showJackson("Michael"));
+            console.log(showJackson("Janet"));
+            
+//            var links = document.querySelectorAll("a");
+            
+            function select(type){
+                var attr = document.querySelectorAll(type);
+                return function(first, second){
+                    attr.forEach(function(value, index, arr){
+                        return attr[index].setAttribute(first, second);
+                    });
+                };
+            }
+            
+            var setLinksAttr = select("a");
+            setLinksAttr('target', '_blank');
+            
+            var setImgAttr = select('img.small');
+            setImgAttr('width', '200');
+        </script>
+    </body>
+</html>
