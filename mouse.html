@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Muis Circle</title>
+        <style>
+            #circle{
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: black;
+                color: white;
+                width: 70px;
+                height: 70px;
+                border-radius: 50px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id='circle'>
+
+        </div>
+        <div id='coordtest'>
+
+        </div>
+
+
+        <script>
+            document.addEventListener("mousemove", coords);
+            var $recordX = [];
+            var $recordY = [];
+            function coords() {
+                var x = event.clientX;
+                var y = event.clientY;
+                document.getElementById('circle').style.left = x + 'px';
+                document.getElementById('circle').style.top = y + 'px';
+                $recordX.push(x);
+                $recordY.push(y);
+                console.log($recordX + ' ' + $recordY);
+            }
+            document.addEventListener("click", showRecord);
+            function showRecord() {
+                for (var i = 0; i < $recordX.length; i++) {
+                    document.getElementById('circle').style.left = $recordX[i];
+                    document.getElementById('circle').style.top = $recordY[i];
+                }
+            }
+        </script>
+    </body>
+</html>
